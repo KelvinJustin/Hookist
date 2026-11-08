@@ -32,6 +32,24 @@ npm start
 
 Server listens on `http://localhost:3000` (or `$PORT`).
 
+## 2.1 Docker setup
+
+```bash
+cp .env.example .env
+# edit .env and set MANAGEMENT_API_KEY
+
+docker build -t webhook-lab .
+docker run --rm -p 3000:3000 --env-file .env webhook-lab
+```
+
+Or with Docker Compose:
+
+```bash
+cp .env.example .env
+# edit .env and set MANAGEMENT_API_KEY
+docker compose up --build
+```
+
 ## 3. Deploying to Render
 
 1. Push this project to a GitHub repo (`server.js`, `package.json`, etc).

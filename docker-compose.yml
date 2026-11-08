@@ -1,0 +1,11 @@
+services:
+  webhook-lab:
+    build:
+      context: .
+    container_name: webhook-lab
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      PORT: ${PORT:-3000}
+      MANAGEMENT_API_KEY: ${MANAGEMENT_API_KEY:-change-me-to-a-long-random-string}
+    restart: unless-stopped
